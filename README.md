@@ -20,4 +20,3 @@ Asumes you have rust and cargo installed and configured
 ```bash
 cargo run 
 ```
-
