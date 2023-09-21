@@ -58,6 +58,10 @@ pub async fn run(event_loop: EventLoop<()>, window: &Window) {
         push_constant_ranges: &[],
     });
 
+    
+    // let render_pipeline: = device.create_render_pipeline(&wgpu::RenderPipelineDescriptor {
+    //     label: (), layout: (), vertex: (), primitive: (), depth_stencil: (), multisample: (), fragment: (), multiview: () })
+
     let render_pipeline = device.create_render_pipeline(&wgpu::RenderPipelineDescriptor {
         label: None,
         layout: Some(&pipeline_layout),
@@ -110,7 +114,7 @@ pub async fn run(event_loop: EventLoop<()>, window: &Window) {
                             view: &view,
                             resolve_target: None,
                             ops: wgpu::Operations {
-                                load: wgpu::LoadOp::Clear(wgpu::Color {r: 0.05, g:0.062, b:0.08, a:1.0}),
+                                load: wgpu::LoadOp::Clear(wgpu::Color {r: 0.0, g:0.0, b:0.0, a:0.6}),
                                 store: true,
                             },
                         })],
@@ -135,7 +139,7 @@ pub async fn run(event_loop: EventLoop<()>, window: &Window) {
 fn main() {
     let event_loop = EventLoop::new();
     let window = winit::window::Window::new(&event_loop).unwrap(); 
-    window.set_title("wgpu03: triangle");
+    window.set_title("Rust Graphics");
     env_logger::init();
     pollster::block_on( run(event_loop, &window));    
 }
