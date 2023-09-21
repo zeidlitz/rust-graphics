@@ -1,7 +1,7 @@
 use winit::{
     event::{Event, WindowEvent},
     event_loop::{ControlFlow, EventLoop},
-    window::Window,
+    window::Window
 };
 
 pub async fn run(event_loop: EventLoop<()>, window: &Window) {      
