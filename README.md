@@ -13,17 +13,18 @@ The goal with this project was for me to get some hands on experience interfacin
 
 ## 🛠 Content
 
-**shader.wgsl** : 
+**src/main.rs** : 
+
+Application entry point that hosts the event loop. 
+
+**src/shader.wgsl** :
 
 WGSL shader that defines a simple triangle rendering process. It takes vertex indices as input and assigns positions and colors to each vertex of a triangle.
 
-**renderpipeline.rs** : 
+**src/renderpipeline.rs** : 
 	
 *Sets up our graphical application using winit and wgpu libraries. It takes a window and configures a Vulkan based graphics instance and establishes a rendering pipeline with our shader.*
 
-**main.rs** : 
-
-Application entry point that hosts the event loop. 
 
 ## 🚀 Usage
 
