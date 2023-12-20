@@ -9,7 +9,7 @@ Using rust to create a graphical shader rendering pipeline
 
 ## 📬 Goal and purposes
 
-The goal with this project was for me to get some hands on experience interfacing with the GPU through the Rust programming language. It uses rust wgsl and opengl libraries to interface with the GPU. The application sets up a window and renders a triangle with some RGB mixed colors. This project is part of my endeavours in learning the Rust programming language. 
+The goal with this project was for me to get some hands on experience interfacing with the GPU through the Rust programming language. It uses rust wgsl and opengl libraries to interface with the GPU. The application sets up a window and renders a triangle with some RGB mixed colors.
 
 ## 🛠 Content
 
