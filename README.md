@@ -3,7 +3,7 @@
 ## 🦀 Rust Graphics
 Using rust to create a graphical shader rendering pipeline
 
-![Graphics](graphics.png)
+<img src="graphics.png" alt="graphics" width="200"/>
 
 </div>
 
