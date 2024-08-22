@@ -3,30 +3,51 @@
 ## 🦀 Rust Graphics
 Using rust to create a graphical shader rendering pipeline
 
-<img src="graphics.png" alt="graphics" width="200"/>
-
 </div>
 
-## 📬 Goal and purposes
+##  Goal & purpose
 
 The goal with this project was for me to get some hands on experience interfacing with the GPU through the Rust programming language. It uses rust wgsl and opengl libraries to interface with the GPU. The application sets up a window and renders a triangle with some RGB mixed colors.
 
-## 🛠 Content
+## Implementations
 
-**src/main.rs** : 
+One limitation at this moment is that the render pipeline will asume a Vulkan based backend
 
-Application entry point that hosts the event loop. 
+```rust
+    let instance = wgpu::Instance::new(wgpu::InstanceDescriptor {
+        backends: wgpu::Backends::VULKAN,
+        dx12_shader_compiler: Default::default(),
+```
 
-**src/shader.wgsl** :
+This could be improved by adding some gpu backend discovery logic and asuming a default instead. 
 
-WGSL shader that defines a simple triangle rendering process. It takes vertex indices as input and assigns positions and colors to each vertex of a triangle.
+We also need to load a renderer, and here it asumes a "shader.wgsl" to be found in the project and tries to load it, this aswell could be done more dynamically.
 
-**src/renderpipeline.rs** : 
-	
-*Sets up our graphical application using winit and wgpu libraries. It takes a window and configures a Vulkan based graphics instance and establishes a rendering pipeline with our shader.*
+```rust
+    let shader = device.create_shader_module(wgpu::ShaderModuleDescriptor {
+        label: None,
+        source: wgpu::ShaderSource::Wgsl(include_str!("shader.wgsl").into()),
+    });
+```
+
+The shader.wgsl simply imposes a "triangle" shape with  a set of 2 and 3 dimensinal vectors.
+The 2 dimensional vectors representing x, y coordinates and where each "corner" of the triangle will start and stop. The 3 dimensional vectors represent the colors to be rendered at each position with RGB.
+
+```wgsl
+    var pos = array<vec2<f32>,3>(
+        vec2<f32>(0.0, 0.5),
+        vec2<f32>(-0.5,-0.5),
+        vec2<f32>(0.5,-0.5)
+    );
+    var color = array<vec3<f32>,3>(
+        vec3<f32>(1.0, 0.0, 0.0),
+        vec3<f32>(0.0, 1.0, 0.0),
+        vec3<f32>(0.0, 0.0, 1.0)
+    );
+```
 
 
-## 🚀 Usage
+## Usage
 
 Asumes you have rust and cargo installed and configured
 
